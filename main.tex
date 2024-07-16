@@ -1,0 +1,104 @@
+\documentclass{book}
+\usepackage[spanish]{babel}
+\title{Guía de Cálculo Integral}
+\author{Universidad Católica de Oriente}
+\date{July, 2024}
+\begin{document}
+    \part{Guía de Cálculo Integral}
+    \chapter{Carta al lector}
+        \begin{quote}
+        \textit{``El 80\% del éxito se basa simplemente en insistir''} - Woody Allen
+        \end{quote}
+        \paragraph{}Aún recuerdo que hace años, durante mi proceso de formación profesional en la universidad, era recurrente pensar que los docentes eran calificados de acuerdo con la cantidad de estudiantes reprobados de un curso, y más irónicamente todavía, pensar que un número alto de estudiantes reprobados representaba un índice de calidad elevado. Nada más alejado de la realidad.
+        \paragraph{}Mis compañeros contaban anécdotas acerca del abuso o la indolencia que llevaban a cabo varios de sus profesores, y en un acto inconsciente de defensa de su propia integridad mental, se reían de estos acontecimientos. Nos metíamos en la idea de que estudiar ingeniería debía ser algo difícil y que solo una especie de ``hombre valiente e indomable'' era ``merecedor del título de ingeniero'' cual si estuviéramos combatiendo contra la tiranía de un reinado enemigo (permítase reírse). Así que, partícipes de dificultar el proceso de enseñanza para enaltecer nuestro ego por aprobar materias difíciles, aceptábamos y hasta promovíamos la ausencia de humanismo en los procesos de enseñanza.
+        \paragraph{}Recuerdo que yo también contaba anécdota de una de esas historias que fueron duras para mis compañeros en la cual, durante un examen en computador, la persona que se sentaba junto a mí decidió simplemente cancelar la materia y retirarse del salón. Otro de mis compañeros contaba cómo se burlaba de haber visto a uno de los estudiantes de la universidad llorando en pleno examen de física mecánica por la frustración que le provocaba, y otros, con mayor cinismo, reproducían los insultos que los mismos docentes proferían a sus estudiantes en plena clase tras hacer preguntas que sonaban ridículas a los oídos de un profesional en todo menos en lo humano.
+        \paragraph{}La misantropía parecía ser el común denominador de muchos de los docentes, el pensar que las clases debían ser duras para preparar a los estudiantes para un mundo que, al parecer, por alguna extraña razón, debía seguir siendo duro. Lo prioritario era formar personas con caracter fuerte, porque la prepotencia era más importante que la empatía en el camino del éxito que ellos mismo planteaban.
+        \paragraph{}Ojalá la solución a estos problemas fuera tan simple como pedir perdón en nombre de todos los que no entendíamos la indolencia de estas prácticas. La realidad es que las consecuencias de esto ha sido un mundo al que a veces culpamos por ``no querer estudiar'' que en realidad se aleja de la academia para no sentirse humillado, frustrado, abatido...
+        \paragraph{}Hoy se me encomienda realizar esta guía que sé que no será fructífera si no se considera la causa principal del problema, ``la frustración''. La frustración de un estudiante que pudo haber reprobado una materia porque no logró concentrarse para un examen tras la ruptura con su pareja o la muerte de una mascota, de un estudiante que quiso prepararse para un examen durante toda la noche y cuando tuvo que realizarlo simplemente el cansancio no le permitió pensar bien, o la frustración de un estudiante que simplemente se trata mal a si mismo y que cuando se queda a solas, cuando no entiende un ejercicio, empieza a repetir en su cabeza que la culpa es suya, que se dice que ``el problema soy yo'', a quien lo han hecho sentir incapaz e inferior.
+        \paragraph{}Escribo esto pensando en que mucho del estudiantado se identificará con lo que digo, y ojalá que esté equivocado, pues si efectivamente el estudiantado se identifica con esto, es porque ciertamente, el humanismo no ha logrado tomar el lugar que le corresponde en los claustros de educación superior.
+        \paragraph{}Espero que estas páginas sirvan para promover un deseo de superación personal, espero que este documento sea leído sin promover nuevas frustraciones y espero que los logros alcanzados con este representen un eventual motivo de orgullo en el futuro de los lectores.
+        \paragraph{}¡Ánimo! La carrera ya comenzó. Déjenme ser romántico para pedirles que asuman esto como la oportunidad de demostrarse a ustedes mismos que su esfuerzo sí les abrirá el camino para alcanzar sus sueños. 
+    \chapter{La integral}
+        \paragraph{}El teorema fundamental del cálculo dice que la derivada y la integral de una función son operaciones inversas, esto quiere decir que si la derivada de $F(x) = f(x)$, entonces la integral de $f(x)$ es $f(x)$.
+        \paragraph{}La integral se representa de la sigueinte manera:
+        $$\int{F(x)dx}$$
+        Donde $\int$ es el símbolo de la integral, $F(x)$ es el integrando y $dx$, que se lee como ``el diferencial de x'' denota la variable de integración, en este caso la $x$. El diferencial de x representa lo mismo que representa en una derivada, o sea un desplazamiento infinitesimal en x.
+        \subsubsection{Nota}En este documento (y en muchos otros libros), se denotará por $f(x)$ a la derivada de la función $F(x)$. En otras palabras $F(x)$ es la función primitiva de $f(x)$.
+        \paragraph{}A partir de lo anterior, se pueden intuir las integrales más simples a partir del conocimiento de las derivadas como se muestra a continuación.
+        \paragraph{}La primera integral que se analiza es la integral de 0, la cual se puede intuir a partir de la derivada de una constante. Es decir, dado que la derivada de una constante es igual a 0, la integral de cero necesariamente puede ser cualquier constante.
+        \begin{equation}
+        \frac{d}{dx}C = 0\rightarrow\int{0}dx=C
+        \end{equation}
+        \paragraph{}De igual manera, usando el teorema fundamental (el que se presenta en el primer párrafo de este capítulo) se puede representar la definición de una integral de la siguiente manera:
+        \begin{equation}
+        \frac{d}{dx}F(x) = f(x)\rightarrow\int{f(x)}dx=F(x)
+        \end{equation}
+        \paragraph{}Nótese que $F(x)$ no es la única función que puede dar como derivada otra función $f(x)$, puesto que si a $F(x)$ se le suma cualquier constante $C$, la derivada de esta nueva función seguirá siendo $f(x)$. Esto se representa de la siguiente manera:
+        \begin{equation}
+        \frac{d}{dx}\left(F(x)+C\right) = f(x)\rightarrow\int{f(x)}dx=F(x)+C
+        \end{equation}
+        \paragraph{}De aquí se puede concluir que, dado que la derivada de $F(x)$ es la misma derivada de $F(x)+C$, entonces toda integral, de cualquier función, debe terminar en un $+C$, que quiere decir este resultado es válido, y que al sumarle cualquier constante a la respuesta sigue siendo igualmente válido.
+        \section{Propiedades de la integral}
+            \paragraph{}Las derivadas tienen la propiedad de linealidad y homogeneidad, que permiten simplificar ciertas derivadas. Dado que la integral es la operación inversa de la derivada, la integral también tiene esta propiedad, como se muestra a continuación:
+            \begin{equation}
+            \frac{d}{dx}kF(x) = kf(x)\rightarrow\int{kf(x)}dx=kF(x)+C
+            \end{equation}
+            \paragraph{}Esta propiedad se suele usar diciendo que ``la constante sale de la integral'' puesto que el siguiente procedimiento es válido
+            \begin{equation}
+            \int{kf(x)}dx=k\int{f(x)}dx=kF(x)+C
+            \end{equation}
+            \paragraph{}De igual forma, cuándo las funciones se suman, estas se puede separar
+            \begin{equation}
+            \frac{d}{dx}\left(F(x)+G(x)\right) =f(x)+g(x)\rightarrow\int{\left(f(x)+g(x)\right)}dx=F(x)+G(x)+C
+            \end{equation}
+            \paragraph{}Esta propiedad se suele usar diciendo que ``la integral se separa'' puesto que la siguiente operación es válida
+            \begin{equation}
+            \int{\left(f(x)+g(x)\right)}dx=\int{f(x)}dx+\int{g(x)}dx=F(x)+G(x)+C
+            \end{equation}
+            \paragraph{}Nótese que solo se usa una C, puesto que la constante que se suma al final es arbitraria (o sea que cualquier costante sirve), así que al sumar dos constantes, el resultado seguirá siendo una constante.
+            \paragraph{}A la combinación de estas dos propiedades se le conoce como la propiedad de linealidad, y se puede representar de la siguiente manera
+            \begin{equation}
+            \int{\left(k_1f(x)+k_2g(x)\right)}dx=k_1F(x)+k_2G(x)+C
+            \end{equation}
+        \section{Resolución de integrales}
+            \paragraph{}Las integrales más sencillas se realizan de manera directa sabiendo que son la derivada de ciertas funciones
+            $$\frac{d}{dx}x=1\rightarrow\int{1}dx=x+C$$
+            \paragraph{}Puede parecer obvio que el diferencial está multiplicando al 1, por lo que poner el 1 no es estrictamente necesario, así que la ecuación queda así:
+            \begin{equation}
+            \int{dx}=x+C
+            \end{equation}
+            \paragraph{}Dado que x es una variable arbitraria, se puede decir que una integral “vacía” (sin integrando) es igual a la variable de integración
+            $$\int{dy}=y+C$$
+            $$\int{dz}=z+C$$
+            $$\int{dx^n}=x^n+C$$
+            $$\int{d\P}=\P+C$$
+            \paragraph{}La integral de una constante se deduce de la derivada de una variable por una constante de la siguiente manera:
+            \begin{equation}
+            \frac{d}{dx}kx=k\rightarrow\int{k}dx=k\int{dx}=kx+C
+            \end{equation}
+            \paragraph{}De esta manera
+            \begin{itemize}
+                \item $$\int{5dy}=5y+C$$
+                \item $$\int{\pi dz}=\pi z+C$$
+                \item $$\int{edx^n}=ex^n+C$$
+                \item $$\int{2024d\P}=2024\P+C$$
+            \end{itemize}
+            \paragraph{}Y la integral de $x$, al igual que la integral de $x^k$ siendo $k$ cualquier número real diferente de -1, se puede analizar a partir de la derivada de $x^k$
+            \begin{equation}
+            \frac{d}{dx}x^k=kx^{k-1}\rightarrow\int{x^k}dx=\frac{x^{k+1}}{k+1}+C
+            \end{equation}
+            \paragraph{}De ahí que
+            \begin{itemize}
+                \item $$\int{x^2}dx=\frac{x^{2+1}}{2+1}+C=\frac{x^3}{3}+C$$
+                \item $$\int{\frac{1}{x^7}}dx=\int{x^{-7}}dx=\frac{x^{-7+1}}{-7+1}+C=\frac{x^{-6}}{-6}+C=\frac{-1}{6x^6}+C$$
+                \item $$\int{\sqrt{y}}dy=\int{y^{\frac{1}{2}}}dy=\frac{y^{\frac{1}{2}+1}}{\frac{1}{2}+1}+C=\frac{y^{\frac{3}{2}}}{\frac{3}{2}}+C=\frac{2}{3}y^{\frac{3}{2}}+C=\frac{2}{3}\sqrt{y^3}+C$$
+            \end{itemize}
+            \paragraph{}De ahora en adelante nos saltaremos el paso escribir el resultado sumando 1 y pondremos la suma directamente. Ya con esto se puede resolver la integral de cualquier polinomio como se hace a continuación
+            $$\int{x^2+3x+8}dx=\int{x^2}dx+\int{3x}dx+\int{8}dx$$
+            $$\int{x^2}dx=\frac{x^3}{3}+C$$
+            $$\int{3x}dx=3\int{3x}dx=\frac{3x^2}{2}+C$$
+            $$\int{8}dx=8x+C$$
+            $$\int{x^2+3x+8}dx=\frac{x^3}{3}+\frac{3x^2}{2}+8x+C$$
+            \subsubsection{Tarea}
+            Lee todo lo que se ha escrito hasta ahora y entiéndelo a profundidad. Pregunta todo lo que no lo entiendas o anota las preguntas para hacerlas posteriormente, no avances sin haber entendido esto. Si no has entendido algo ¡Ánimo! ¡Es muy pronto para frustrarte! Estamos para ayudarte. 
+\end{document}
