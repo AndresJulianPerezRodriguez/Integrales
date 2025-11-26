@@ -1,5 +1,18 @@
 \documentclass{book}
 \usepackage[spanish]{babel}
+\usepackage{enumitem}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{amsmath}
+
+\captionsetup[table]{name=Tabla}
+\captionsetup[table]{name=Tabla} 
+
+\renewcommand{\arraystretch}{1.5}
 \title{Guía de Cálculo Integral}
 \author{Universidad Católica de Oriente}
 \date{July, 2024}
@@ -9,22 +22,22 @@
         \begin{quote}
         \textit{``El 80\% del éxito se basa simplemente en insistir''} - Woody Allen
         \end{quote}
-        \paragraph{}Aún recuerdo que hace años, durante mi proceso de formación profesional en la universidad, era recurrente pensar que los docentes eran calificados de acuerdo con la cantidad de estudiantes reprobados de un curso, y más irónicamente todavía, pensar que un número alto de estudiantes reprobados representaba un índice de calidad elevado. Nada más alejado de la realidad.
-        \paragraph{}Mis compañeros contaban anécdotas acerca del abuso o la indolencia que llevaban a cabo varios de sus profesores, y en un acto inconsciente de defensa de su propia integridad mental, se reían de estos acontecimientos. Nos metíamos en la idea de que estudiar ingeniería debía ser algo difícil y que solo una especie de ``hombre valiente e indomable'' era ``merecedor del título de ingeniero'' cual si estuviéramos combatiendo contra la tiranía de un reinado enemigo (permítase reírse). Así que, partícipes de dificultar el proceso de enseñanza para enaltecer nuestro ego por aprobar materias difíciles, aceptábamos y hasta promovíamos la ausencia de humanismo en los procesos de enseñanza.
-        \paragraph{}Recuerdo que yo también contaba anécdota de una de esas historias que fueron duras para mis compañeros en la cual, durante un examen en computador, la persona que se sentaba junto a mí decidió simplemente cancelar la materia y retirarse del salón. Otro de mis compañeros contaba cómo se burlaba de haber visto a uno de los estudiantes de la universidad llorando en pleno examen de física mecánica por la frustración que le provocaba, y otros, con mayor cinismo, reproducían los insultos que los mismos docentes proferían a sus estudiantes en plena clase tras hacer preguntas que sonaban ridículas a los oídos de un profesional en todo menos en lo humano.
-        \paragraph{}La misantropía parecía ser el común denominador de muchos de los docentes, el pensar que las clases debían ser duras para preparar a los estudiantes para un mundo que, al parecer, por alguna extraña razón, debía seguir siendo duro. Lo prioritario era formar personas con caracter fuerte, porque la prepotencia era más importante que la empatía en el camino del éxito que ellos mismo planteaban.
-        \paragraph{}Ojalá la solución a estos problemas fuera tan simple como pedir perdón en nombre de todos los que no entendíamos la indolencia de estas prácticas. La realidad es que las consecuencias de esto ha sido un mundo al que a veces culpamos por ``no querer estudiar'' que en realidad se aleja de la academia para no sentirse humillado, frustrado, abatido...
-        \paragraph{}Hoy se me encomienda realizar esta guía que sé que no será fructífera si no se considera la causa principal del problema, ``la frustración''. La frustración de un estudiante que pudo haber reprobado una materia porque no logró concentrarse para un examen tras la ruptura con su pareja o la muerte de una mascota, de un estudiante que quiso prepararse para un examen durante toda la noche y cuando tuvo que realizarlo simplemente el cansancio no le permitió pensar bien, o la frustración de un estudiante que simplemente se trata mal a si mismo y que cuando se queda a solas, cuando no entiende un ejercicio, empieza a repetir en su cabeza que la culpa es suya, que se dice que ``el problema soy yo'', a quien lo han hecho sentir incapaz e inferior.
-        \paragraph{}Escribo esto pensando en que mucho del estudiantado se identificará con lo que digo, y ojalá que esté equivocado, pues si efectivamente el estudiantado se identifica con esto, es porque ciertamente, el humanismo no ha logrado tomar el lugar que le corresponde en los claustros de educación superior.
-        \paragraph{}Espero que estas páginas sirvan para promover un deseo de superación personal, espero que este documento sea leído sin promover nuevas frustraciones y espero que los logros alcanzados con este representen un eventual motivo de orgullo en el futuro de los lectores.
+        \paragraph{}Aún recuerdo que hace años, durante mi proceso de formación profesional en la universidad, era recurrente pensar que los docentes eran calificados de acuerdo con la cantidad de estudiantes reprobados en un curso, y, más irónicamente todavía, pensar que un número alto de estudiantes reprobados representaba un índice de calidad elevado. Nada más alejado de la realidad.
+        \paragraph{}Mis compañeros contaban anécdotas acerca del abuso o la indolencia que llevaban a cabo varios de sus profesores, y en un acto inconsciente de defensa de su propia integridad mental, se reían de estos acontecimientos. Nos metíamos en la idea de que estudiar ingeniería debía ser algo difícil y que solo una especie de ``hombre valiente e indomable'' era ``merecedor del título de ingeniero'', cual si estuviéramos combatiendo contra la tiranía de un reinado enemigo (permítase reírse). Así que, partícipes de dificultar el proceso de enseñanza para enaltecer nuestro ego por aprobar materias difíciles, aceptábamos y hasta promovíamos la ausencia de humanismo en los procesos de enseñanza.
+        \paragraph{}Recuerdo que yo también contaba la anécdota de una de esas historias que fueron duras para mis compañeros en la cual, durante un examen en computador, la persona que se sentaba junto a mí decidió simplemente cancelar la materia y retirarse del salón. Otro de mis compañeros contaba cómo se burlaba de haber visto a uno de los estudiantes de la universidad llorando en pleno examen de física mecánica por la frustración que le provocaba, y otros, con mayor cinismo, reproducían los insultos que los mismos docentes proferían a sus estudiantes en plena clase tras hacer preguntas que sonaban ridículas a los oídos de un profesional en todo menos en lo humano.
+        \paragraph{}La misantropía parecía ser el común denominador de muchos de los docentes, junto con el pensamiento de que las clases debían ser duras para preparar a los estudiantes para un mundo que, al parecer, por alguna extraña razón, debía seguir siendo duro. Lo prioritario era formar personas con caracter fuerte, porque la prepotencia era más importante que la empatía en el camino del éxito que ellos mismos planteaban.
+        \paragraph{}Ojalá la solución a estos problemas fuera tan simple como pedir perdón en nombre de todos los que no entendíamos la indolencia de estas prácticas. La realidad es que las consecuencias de esto han sido un mundo al que a veces culpamos por ``no querer estudiar'', que en realidad se aleja de la academia para no sentirse humillado, frustrado, abatido...
+        \paragraph{}Hoy se me encomienda realizar esta guía, que sé que no será fructífera si no se considera la causa principal del problema: \textit{la frustración}. La frustración de un estudiante que pudo haber reprobado una materia porque no logró concentrarse para un examen tras la ruptura con su pareja o la muerte de una mascota; de un estudiante que quiso prepararse para un examen durante toda la noche y, cuando tuvo que realizarlo, simplemente el cansancio no le permitió pensar bien; o la frustración de un estudiante que simplemente se trata mal a si mismo y que, cuando se queda a solas, cuando no entiende un ejercicio, empieza a repetir en su cabeza que la culpa es suya, que se dice que ``el problema soy yo'', a quien lo han hecho sentir incapaz e inferior.
+        \paragraph{}Escribo esto pensando en que mucho del estudiantado se identificará con lo que digo, y ojalá que esté equivocado; pues, si efectivamente el estudiantado se identifica con esto, es porque ciertamente el humanismo no ha logrado tomar el lugar que le corresponde en los claustros de educación superior.
+        \paragraph{}Espero que estas páginas sirvan para promover un deseo de superación personal, espero que este documento sea leído sin promover nuevas frustraciones y espero que los logros alcanzados con éste representen un eventual motivo de orgullo en el futuro de los lectores.
         \paragraph{}¡Ánimo! La carrera ya comenzó. Déjenme ser romántico para pedirles que asuman esto como la oportunidad de demostrarse a ustedes mismos que su esfuerzo sí les abrirá el camino para alcanzar sus sueños. 
     \chapter{La integral}
-        \paragraph{}El teorema fundamental del cálculo dice que la derivada y la integral de una función son operaciones inversas, esto quiere decir que si la derivada de $F(x) = f(x)$, entonces la integral de $f(x)$ es $f(x)$.
-        \paragraph{}La integral se representa de la sigueinte manera:
-        $$\int{F(x)dx}$$
-        Donde $\int$ es el símbolo de la integral, $F(x)$ es el integrando y $dx$, que se lee como ``el diferencial de x'' denota la variable de integración, en este caso la $x$. El diferencial de x representa lo mismo que representa en una derivada, o sea un desplazamiento infinitesimal en x.
-        \subsubsection{Nota}En este documento (y en muchos otros libros), se denotará por $f(x)$ a la derivada de la función $F(x)$. En otras palabras $F(x)$ es la función primitiva de $f(x)$.
-        \paragraph{}A partir de lo anterior, se pueden intuir las integrales más simples a partir del conocimiento de las derivadas como se muestra a continuación.
+        \paragraph{}El teorema fundamental del cálculo dice que la derivada y la integral de una función son operaciones inversas (definiendo con esto a la integral), esto quiere decir que si la derivada de $F(x)$ es $f(x)$, entonces la integral de $f(x)$ es $F(x)$.
+        \paragraph{}La integral se representa de la siguiente manera:
+        $$\int{f(x)dx}$$
+        Donde $\int$ es el símbolo de la integral, $f(x)$ es el integrando y $dx$, que se lee como ``el diferencial de x'', denota la variable de integración, en este caso, la $x$. El diferencial de x representa lo mismo que representa en una derivada, o sea, un desplazamiento infinitesimal en $x$.
+        \subsubsection{Nota}En este documento (y en muchos otros libros), se denotará por $f(x)$ a la derivada de la función $F(x)$. En otras palabras, $F(x)$ es la función primitiva de $f(x)$.
+        \paragraph{}A partir de lo anterior, se pueden intuir los resultados de las integrales más simples, utilizando el conocimiento de las derivadas como se muestra a continuación.
         \paragraph{}La primera integral que se analiza es la integral de 0, la cual se puede intuir a partir de la derivada de una constante. Es decir, dado que la derivada de una constante es igual a 0, la integral de cero necesariamente puede ser cualquier constante.
         \begin{equation}
         \frac{d}{dx}C = 0\rightarrow\int{0}dx=C
@@ -37,37 +50,37 @@
         \begin{equation}
         \frac{d}{dx}\left(F(x)+C\right) = f(x)\rightarrow\int{f(x)}dx=F(x)+C
         \end{equation}
-        \paragraph{}De aquí se puede concluir que, dado que la derivada de $F(x)$ es la misma derivada de $F(x)+C$, entonces toda integral, de cualquier función, debe terminar en un $+C$, que quiere decir este resultado es válido, y que al sumarle cualquier constante a la respuesta sigue siendo igualmente válido.
+        \paragraph{}De aquí se puede concluir que, dado que la derivada de $F(x)$ es la misma derivada de $F(x)+C$, entonces toda integral, de cualquier función, debe terminar en un $+C$, que quiere decir que este resultado es válido, y que al sumarle cualquier constante a la respuesta sigue siendo igualmente válido.
         \section{Propiedades de la integral}
             \paragraph{}Las derivadas tienen la propiedad de linealidad y homogeneidad, que permiten simplificar ciertas derivadas. Dado que la integral es la operación inversa de la derivada, la integral también tiene esta propiedad, como se muestra a continuación:
             \begin{equation}
             \frac{d}{dx}kF(x) = kf(x)\rightarrow\int{kf(x)}dx=kF(x)+C
             \end{equation}
-            \paragraph{}Esta propiedad se suele usar diciendo que ``la constante sale de la integral'' puesto que el siguiente procedimiento es válido
+            \paragraph{}Esta propiedad se suele usar diciendo que ``la constante sale de la integral'' puesto que el siguiente procedimiento es válido.
             \begin{equation}
             \int{kf(x)}dx=k\int{f(x)}dx=kF(x)+C
             \end{equation}
-            \paragraph{}De igual forma, cuándo las funciones se suman, estas se puede separar
+            \paragraph{}De igual forma, cuando las funciones se suman, estas se puede separar.
             \begin{equation}
-            \frac{d}{dx}\left(F(x)+G(x)\right) =f(x)+g(x)\rightarrow\int{\left(f(x)+g(x)\right)}dx=F(x)+G(x)+C
+            \frac{d}{dx}\left[F(x)+G(x)\right] =f(x)+g(x)\rightarrow\int{\left[f(x)+g(x)\right]}dx=F(x)+G(x)+C
             \end{equation}
-            \paragraph{}Esta propiedad se suele usar diciendo que ``la integral se separa'' puesto que la siguiente operación es válida
+            \paragraph{}Esta propiedad se suele usar diciendo que ``la integral se separa'' puesto que la siguiente operación es válida.
             \begin{equation}
-            \int{\left(f(x)+g(x)\right)}dx=\int{f(x)}dx+\int{g(x)}dx=F(x)+G(x)+C
+            \int{\left[f(x)+g(x)\right]}dx=\int{f(x)}dx+\int{g(x)}dx=F(x)+G(x)+C
             \end{equation}
-            \paragraph{}Nótese que solo se usa una C, puesto que la constante que se suma al final es arbitraria (o sea que cualquier costante sirve), así que al sumar dos constantes, el resultado seguirá siendo una constante.
-            \paragraph{}A la combinación de estas dos propiedades se le conoce como la propiedad de linealidad, y se puede representar de la siguiente manera
+            \paragraph{}Nótese que solo se usa una C, puesto que la constante que se suma al final es arbitraria (o sea que cualquier costante sirve), y al sumar dos constantes, el resultado seguirá siendo una sola constante.
+            \paragraph{}A la combinación de estas dos propiedades se le conoce como la propiedad de linealidad, y se puede representar de la siguiente manera:
             \begin{equation}
-            \int{\left(k_1f(x)+k_2g(x)\right)}dx=k_1F(x)+k_2G(x)+C
+            \int{\left[k_1f(x)+k_2g(x)\right]}dx=k_1F(x)+k_2G(x)+C
             \end{equation}
         \section{Resolución de integrales}
-            \paragraph{}Las integrales más sencillas se realizan de manera directa sabiendo que son la derivada de ciertas funciones
+            \paragraph{}Las integrales más sencillas se realizan de manera directa sabiendo que son la derivada de ciertas funciones, por ejemplo:
             $$\frac{d}{dx}x=1\rightarrow\int{1}dx=x+C$$
-            \paragraph{}Puede parecer obvio que el diferencial está multiplicando al 1, por lo que poner el 1 no es estrictamente necesario, así que la ecuación queda así:
+            \paragraph{}Puede parecer obvio que el diferencial está multiplicando al 1, por lo que poner el 1 no es estrictamente necesario, así que la expresión queda de la siguiente manera:
             \begin{equation}
             \int{dx}=x+C
             \end{equation}
-            \paragraph{}Dado que x es una variable arbitraria, se puede decir que una integral “vacía” (sin integrando) es igual a la variable de integración
+            \paragraph{}Dado que $x$ es una variable arbitraria, se puede decir que una integral “vacía” (sin integrando) es igual a la variable de integración.
             $$\int{dy}=y+C$$
             $$\int{dz}=z+C$$
             $$\int{dx^n}=x^n+C$$
@@ -76,29 +89,581 @@
             \begin{equation}
             \frac{d}{dx}kx=k\rightarrow\int{k}dx=k\int{dx}=kx+C
             \end{equation}
-            \paragraph{}De esta manera
+            \paragraph{}De esta manera:
             \begin{itemize}
                 \item $$\int{5dy}=5y+C$$
                 \item $$\int{\pi dz}=\pi z+C$$
                 \item $$\int{edx^n}=ex^n+C$$
                 \item $$\int{2024d\P}=2024\P+C$$
             \end{itemize}
-            \paragraph{}Y la integral de $x$, al igual que la integral de $x^k$ siendo $k$ cualquier número real diferente de -1, se puede analizar a partir de la derivada de $x^k$
+            \paragraph{}Y la integral de $x$, al igual que la integral de $x^k$ siendo $k$ cualquier número real diferente de -1, se puede analizar a partir de la derivada de $x^k$.
             \begin{equation}
             \frac{d}{dx}x^k=kx^{k-1}\rightarrow\int{x^k}dx=\frac{x^{k+1}}{k+1}+C
             \end{equation}
-            \paragraph{}De ahí que
+            \paragraph{}De ahí que:
             \begin{itemize}
                 \item $$\int{x^2}dx=\frac{x^{2+1}}{2+1}+C=\frac{x^3}{3}+C$$
                 \item $$\int{\frac{1}{x^7}}dx=\int{x^{-7}}dx=\frac{x^{-7+1}}{-7+1}+C=\frac{x^{-6}}{-6}+C=\frac{-1}{6x^6}+C$$
                 \item $$\int{\sqrt{y}}dy=\int{y^{\frac{1}{2}}}dy=\frac{y^{\frac{1}{2}+1}}{\frac{1}{2}+1}+C=\frac{y^{\frac{3}{2}}}{\frac{3}{2}}+C=\frac{2}{3}y^{\frac{3}{2}}+C=\frac{2}{3}\sqrt{y^3}+C$$
             \end{itemize}
-            \paragraph{}De ahora en adelante nos saltaremos el paso escribir el resultado sumando 1 y pondremos la suma directamente. Ya con esto se puede resolver la integral de cualquier polinomio como se hace a continuación
+            \paragraph{}De ahora en adelante nos saltaremos el paso de escribir el resultado sumando 1 al exponente y pondremos directamente el resultado de la suma. Ya con esto se puede resolver la integral de cualquier polinomio como se hace a continuación:
             $$\int{x^2+3x+8}dx=\int{x^2}dx+\int{3x}dx+\int{8}dx$$
             $$\int{x^2}dx=\frac{x^3}{3}+C$$
-            $$\int{3x}dx=3\int{3x}dx=\frac{3x^2}{2}+C$$
+            $$\int{3x}dx=3\int{x}dx=\frac{3x^2}{2}+C$$
             $$\int{8}dx=8x+C$$
             $$\int{x^2+3x+8}dx=\frac{x^3}{3}+\frac{3x^2}{2}+8x+C$$
             \subsubsection{Tarea}
-            Lee todo lo que se ha escrito hasta ahora y entiéndelo a profundidad. Pregunta todo lo que no lo entiendas o anota las preguntas para hacerlas posteriormente, no avances sin haber entendido esto. Si no has entendido algo ¡Ánimo! ¡Es muy pronto para frustrarte! Estamos para ayudarte. 
+            Lee todo lo que se ha escrito hasta ahora y entiéndelo a profundidad. Pregunta todo lo que no entiendas o anota las preguntas para hacerlas posteriormente, no avances sin haber entendido esto. Si no has entendido algo ¡Ánimo! ¡Es muy pronto para frustrarse! Estamos para ayudarte. 
+            \subsection{Ejercicios}
+            \paragraph{}Realiza los siguientes ejercicios sin saltarte ninguno y sin adelantarte, dispón de tiempo para realizarlos todos el mismo día y sin descansar hasta haberlos terminado. Dos habilidades importantes que hay que trabajar son la constancia y la concentración. ¡La práctica hace al maestro!
+            \begin{enumerate}
+                \item Represente las siguientes derivadas como una integral (No olvides el +C).
+                \begin{enumerate}[label*=\arabic*.]
+                    \item[1.0] Ejemplo.
+                    $$\frac{d}{dx}3x^2 = 6x \rightarrow \int{6x}dx=3x^2+C$$
+                    \item $\frac{d}{d\theta}\theta = 1 \rightarrow$
+                    \item $\frac{d}{d\alpha}7\alpha = 7 \rightarrow$
+                    \item $\frac{d}{dx}\frac{x^3}{3} = x^2 \rightarrow$
+                    \item $\frac{d}{dx}\ln{x} = \frac{1}{x} \rightarrow$
+                    \item $\frac{d}{dx}\sin{x} = \cos{x} \rightarrow$
+                    \item *$\frac{d}{dy}\sin{(xy)} = x\sin{(xy)}$
+                \end{enumerate}
+                \item Realice las siguientes integrales. Los ejercicios que tienen un asterisco (*) son capciosos.
+                \begin{enumerate}[label*=\arabic*.]
+                    \item $\int{dm}$
+                    \item $\int{27dx}$
+                    \item $\int{\pi dx}$
+                    \item $\int{\pi xdx}$
+                    \item *$\int{\pi xdy}$
+                    \item $\int{x^{3}dx}$
+                    \item $\int{5y^{9}dy}$
+                    \item $\int{3n^{-4}dn}$
+                    \item *$\int{\sqrt{x^5}dx}$
+                    \item $\int{98m^{\pi}dm}$
+                \end{enumerate}
+                \item Aplica la propiedad de linealidad para resolver las siguientes integrales de sumas y luego simplifica el resultado. Los ejercicios con asterisco (*) son capciosos. Recuerda que las respuestas de los ejercicios impares se encuentran al final del documento. No vayas a las respuestas hasta no haberlos intentado, pero si no lo logras, ve a las respuestas para desestancarte.
+                \begin{enumerate}[label*=\arabic*.]
+                    \item[1.0] Ejemplo.
+                    $$\int{\left(x^4 + 2x^3 + 3x^2 + 4x + 5\right)}dx=$$
+                    $$\int{x^4}dx+\int{2x^3}dx+\int{3x^2}dx+\int{4x}dx+\int{5}dx=$$
+                    $$\int{x^4}dx+2\int{x^3}dx+3\int{x^2}dx+4\int{x}dx+5\int{dx}=$$
+                    $$\frac{x^5}{5}+\frac{2x^4}{4}+\frac{3x^3}{3}+\frac{4x^2}{2}+5x+C$$
+                    $$\frac{x^5}{5}+\frac{x^4}{2}+x^3+2x^2+5x+C$$
+                    \item $\int{\left(x^2 + 2x + 1\right)}dx=$
+                    \item $\int{\left(x^2 + x^{-2} + e\right)}dx=$
+                    \item $\int{\left(x^4 + \sqrt{4x} + x^{1.5}\right)}dx=$
+                    \item *$\int{\left(3\cos{x}+\frac{4}{\sqrt{x}}\right)}dx=$
+                    \item *$\int{\left(x + 2\right)^2}dx=$
+                    \item *$\int{\left(x + 2\right)\left(\sqrt{x} + 3\right)}dx=$
+            \end{enumerate}
+            \item 
+            Si llegaste hasta aquí sin saltarte ningún ejercicio, tómate un descanso ¡Vas muy bien! Si te saltaste algún punto o tienes alguna pregunta, trata de resolverla con algún compañero, con un monitor o con tu docente. No avances con vacíos conceptuales.
+            \paragraph{}Aprovecha el descanso para discutir con tus compañeors acerca de los ejercicios, la guía o el cansancio mental que puedas estar sintiendo. No te sientas mal si estás más cansado que otros, recuerda que todos avanzamos a nuestro propio ritmo. No te sientas inseguro de darle al monitor o al docente una retroalimentación, coméntale cuáles son tus posibles falencias y permite que él te haga recomendaciones para saber cómo abordar ese problema.
+        \end{enumerate}
+        \section{Tabla de Integrales}
+            \paragraph{}Las integrales de algunas funciones se resuelven haciendo uso de la memoria o del conocimiento generalizado del cálculo, en vista de que su derivada también se lleva a cabo de manera directa. A la lista que contiene varias de las integrales que se pueden calcular de manera directa se le conoce como una ``tabla de integrales''.
+            \paragraph{}Demostrar que una integral tiene determinado resultado es relativamente fácil cuando se sabe que el integrando es la derivada de otra función. 4 de estas funciones son las que aparecen a continuación.
+            $$\int{e^x}dx=e^x+C$$
+            $$\int{\sin{x}}dx=-\cos{x}+C$$
+            $$\int{\cos{x}}dx=sin{x}+C$$
+            $$\int{\frac{1}{x}}dx=\ln{x}+C$$
+            \paragraph{}Lee las 4 integrales anteriores y trata de entender porqué sus resultados son esos. ¿Por qué la integral de $\sin{x}$ da $\cos{x}$ negativo y la integral de $\cos{x}$ da $\sin{x}$ positivo? ¿Qué pasaría si tratamos de integral $\frac{1}{x}$ como si fuera un caso de $x^n$?
+            \paragraph{}Estas integrales pueden ser deducidas a partir de una ecuación diferencial (ED). Una ED, como su nombre lo indica, es una ecuación (una igualdad, una expresión matemática que tiene un símbolo de igual) que tiene por lo menos un diferencial (un dx, un dy o algun otro diferencial). Un ejemplo de ello se presenta a continuación.
+            $$\frac{d}{dx}\sin{x} = \cos{x}$$
+            \paragraph{}Casi siempre se pueden trabajar los diferenciales como cualquier otro factor, y una derivada como cualquier otra división. Siendo así, despejemos $\sin{x}$. Primero, multiplicamos a ambos lados por el diferencial de $dx$ (pasamos el $dx$ que esta dividiendo para el otro lado a multiplicar).
+            $$d\sin{x} = \cos{x}dx$$
+            \paragraph{}Esa expresión anterior se lee de la siguiente manera: ``El diferencial de $\sin{x}$ es igual a $\cos{x}$ multiplicado por el diferencial de x''. Nótese que la $d$ que está antes que el $\sin{x}$ no se puede pasar a dividir, puesto que no se está hablando de una multiplicación, la $d$ no multiplica a $\sin{x}$, la $d$ representa el diferencial de $\sin{x}$, es decir, una sección infinitecimal de la función $\sin{x}$.
+            \paragraph{}Para transformar el diferencial de $\sin{x}$ en la función $\sin{x}$ se utiliza la integral, tal como se hacía con la ecuación (2.9) y en sus ejemplos, y para conservar la igualdad, dado que integramos a un lado, también tenemos que integrar al otro.
+            $$\int{d\sin{x}}=\int{\cos{x}}dx$$
+            $$\sin{x}+C=\int{\cos{x}}dx$$
+            \paragraph{}Lo que acabamos de hacer se conoce como ``resolver una ecuación diferencial por el método de separación de variables'' y es una técnica muy útil para deducir muchas de las integrales que necesitamos. Por ejemplo, deduciremos la integral de $e^{ax}$ siendo $a$ una constante.
+            $$\frac{d}{dx}e^{ax} = ae^{ax}$$
+            $$\int{de^{ax}}=\int{ae^{ax}}dx$$
+            $$e^{ax}+C=a\int{e^{ax}}dx$$
+            $$\int{e^{ax}}=\frac{e^{ax}+C}{a}$$
+            $$\int{e^{ax}}=\frac{e^{ax}}{a}+C$$
+            \paragraph{}¡Detente! Es muy buen momento para tomar una pausa, puede que tu cerebro necesite tiempo para hacer la sinapsis de lo que acaba de leer para lograr entenderlo por completo. Pregunta todo lo que necesites, procesa la información, relee si lo consideras necesario. Trabaja a tu propio ritmo.
+            \paragraph{}Algunas de las integrales que puedes demostrar hasta ahora aparecen en la tabla 2.1, que será la primera tabla de integrales de este libro.
+            \begin{table}[h!]
+            \centering
+                \begin{tabular}{c c c}
+                    \hline
+                    Integral & Resultado & Comentarios\\
+                    \hline
+                    $\int{dx} =$ & $x+C$&\\
+                    $\int{k}dx =$ & $kx+C$&\\
+                    $\int{x^k}dx =$ & $\frac{x^{k+1}}{k+1}+C$&con $k \neq -1$\\
+                    $\int{\frac{1}{x}}dx =$ & $\ln{|x|}+C$&\\
+                    $\int{e^{ax}}dx=$ & $\frac{e^{ax}}{a}+C$& con $a \neq 0$\\
+                    $\int{a^{x}}dx=$ & $\frac{a^x}{\ln{a}}+C$ & con $a > 0$\\
+                    $\int{\sin{(ax)}}dx=$ & $-\frac{\cos{(ax)}}{a}+C$& con $a \neq 0$\\
+                    $\int{\cos{(ax)}}dx=$ & $\frac{\sin{(ax)}}{a}+C$& con $a \neq 0$\\
+                    $\int{\sec^2{(ax)}}dx=$ & $\frac{\tan{(ax)}}{a}+C$& con $a \neq 0$\\
+                    $\int{\csc^2{(ax)}}dx=$ & $-\frac{\cot{(ax)}}{a}+C$& con $a \neq 0$\\
+                    \hline
+                \end{tabular}
+            \caption{Tabla de integrales directas}
+            \label{tab:mi_tabla}
+        \end{table}
+        
+        \paragraph{}Lee la tabla 2.1 y responde ¿Logras entender todas las integrales que aparecen resueltas? ¿Hay alguna que no entiendas o que creas que no podrías demostrar? Tómate tu tiempo para entenderlas todas y pregunta si hay alguna de la cual no entiendas su resultado.
+        \paragraph{}Una tabla de integrales más completa se encuentra al final del capítulo 4, pero por lo pronto centrémonos en entender y demostrar las integrales que podamos abordar por el momento.
+        \subsection{Ejercicios}
+            \paragraph{}Realiza los siguientes ejercicios sin saltarte ninguno y sin adelantarte, dispón de tiempo para realizarlos todos el mismo día y sin descansar hasta haberlos terminado.
+            \begin{enumerate}
+                \item Resuelve las siguientes integrales usando la tabla 2.1. Recuerda que las respuestas de las preguntas impares aparecen al final del documento.
+                \begin{enumerate}[label*=\arabic*.]
+                    \item $\int{\sin{3x}dx}$
+                    \item $\int{\cos{\pi x}dx}$
+                    \item $\int{\left(4\sin{x} - 3e^{2x} \right)dx}$
+                    \item $\int{\left(2x + \frac{3}{x}\right)dx}$
+                    \item *$\int{\left(2x + \frac{3}{x}\right)^2dx}$
+                    \item *$\int{\left(2x + \frac{3}{x}\right)^3dx}$
+                    \item $\int{\left(2x + \frac{3}{x}\right)^4dx}$
+                    \item *$\int{\left(\sin{x} +\cos{x} \right)^2dx}$
+                    \item *$\int{\left(\sin{x} -\cos{x} \right)^2dx}$
+                    \item $\int{\left(\frac{1}{\sqrt{x}} -6x \right)^2dx}$
+                \end{enumerate}
+                \item Busca una tabla de derivadas para resolver las siguientes integrales, identifica cuál es la antiderivada de estas funciones.
+                \begin{enumerate}[label*=\arabic*.]
+                    \item $\int{\tan{(x)}\sec{(x)}}dx$
+                    \item $\int{\cot{(x)}\csc{(x)}}dx$
+                    \item $\int{\frac{1}{1+x^2}}dx$
+                    \item $\int{\frac{1}{\sqrt{1-x^2}}}dx$
+                    \item $\int{\frac{1}{x\sqrt{x^2-1}}}dx$
+                \end{enumerate}
+                \item Deriva las soluciones a las siguientes integrales para corroborar que las integrales son correctas. (Todas son correctas, ningún ejercicio tiene trampa).
+                \begin{enumerate}[label*=\arabic*.]
+                    \item $\int{\ln{x}}dx = x\ln{x}+x+Cdx$
+                    \item $\int{\tan{x}}dx = \ln{\left|\sec{x}\right|}+C$
+                    \item $\int{\sec{x}}dx = \ln{\left|\sec{x}+\tan{x}\right|}+C$
+                    \item $\int{\frac{1}{a-x^2}}dx=\frac{1}{2a}\ln{\left|\frac{a+x}{a-x}\right|}+C$
+                    \item* $\int{\cos^2{x}}=\frac{1}{2}\left(x+\sin{x}\cos{x}\right)+C$
+                \end{enumerate}
+                \item Es momento de tomar un descanso. Pregúntate ¿Cómo te sientes? ¿Te sientes satisfecho/a? Y sino ¿Te sientes preocupado/a? ¿Qué crees que debas hacer para sentirte listo/a? ¿Con quienes has hablado o con quién crees que podrías hablar? Recuerda que la educación es un proceso humano, nuestro sentir es importante. Toma agua si lo crees necesario, levántate de la silla, habla con tus compañeros. Seguramente vas muy bien.
+                \item ¿Ya pasaste por la primera evaluación? ¿Te sientes listo/a para ella? Y sino ¿Qué crees que te falte para sentirte listo/a? ¿Consideras que deberías hablarlo con el docente? ¿Consideras que debes hablarlo con el personal de psicopedagogía? No te quedes esperando a que tus propios pensamientos te hagan sentir mal, has algo al respecto y trátate bien, estudiar mucho te dará seguridad para el examen, y si por más que estudies no logras tranquilizarte, tal vez deberías conversar acerca de tus pensamientos automáticos con el personal de psicopedagogía.
+                \item Si tienes el primer examen pronto, procura dormir y alimentarte bien. Si tienes algún problema personal que consideras que definitivamente no te permitirá abordar el examen, no sientas verguenza al hablarlo con tu profesor ¡No esperes a que te vaya mal en el examen para hablar! Tú eres el estudiante, eres el centro y la razón de ser de este proceso. ¡Priorízate!
+        \end{enumerate}
+        \chapter{Técnicas de integración}
+        \paragraph{}Las integrales que se han resuelto hasta ahora son la antiderivada de funciones que se pueden resolver de manera directa, pero es bien sabido que las técnicas de derivación son variadas, no todas las derivadas se extraen de forma instantánea, lo que da cabida a tener resultados muy complejos de una derivada, y por ende, tener integrales más difíciles de resolver.
+        \paragraph{}Existen funciones que no tienen una antiderivada, por ejemplo $e^{x^2}$ o $\frac{\sin{x}}{x}$. Para estas funciones se crean expresiones matemáticas nuevas que representan la solución a estas integrales, por ejemplo $\int{\frac{\sin{x}}{x}}dx = Si(x)+C$ donde $Si(x)$ no es más que la solución a la integral, que no puede ser escrita con otras expresiones matemáticas. Pero normalmente los libros proporcionan ejercicios de integrales que sí pueden ser resueltas, así que este tema lo dejaremos para más adelante.
+        \paragraph{}Las técnicas de integración son los resultados de llevar a cabo el proceso inverso de las técnicas de derivación. Existen 5 técnicas tradicionales de integración, las cuales son:
+        \begin{enumerate}
+            \item Método de integración directa
+            \item Método de sustitución
+            \item Método de integración por partes
+            \item Método de Fracciones parciales
+            \item Método de sustitución trigonométrica
+        \end{enumerate}
+        \paragraph{}El método de integración directa es la técnica que hemos venido usando hasta el momento, que consiste en identificar que la función que se pretende integrar es la antiderivada de una función conocida. Los demás métodos serán abordados a continuación.
+        \section{Método de sustitución}
+        \paragraph{}El método de sustitución es una técnica desarrollada a partir de la regla de la cadena en las derivadas, cuya fórmula se extrae de la siguiente ecuación.
+        \begin{equation}
+        \frac{df(u)}{dx}=\frac{df(u)}{du}\frac{du}{dx}
+        \label{eq:cadena}
+        \end{equation}
+        \paragraph{}Esta expresión es la que utilizábamos para resolver derivadas de funciones que tienen a otra función adentro, como por ejemplo:
+        $$\frac{d}{dx}\cos{x^2}=-2x\sin{x^2}$$
+        \paragraph{}(Detente aquí y pregúntate si pudiste resolver esta derivada tú solo, si hay algo que no entiendes recuerda que siempre puedes preguntar).
+        \paragraph{}En esta última derivada, primero se deriva la función ``más grande'' o ``más general'' (que es el coseno, ya que ésta es la que contiene al $x^2$) y luego el resultado se multiplica por la derivada de la función interna (que es el $x^2$), que es tal cual lo que se está haciendo en ecuación \ref{eq:cadena} que, si se lee en voz alta, se diría de la siguiente manera: ``Si se deriva con respecto a $x$ una función que está en términos de otra función $u$, el resultado es igual a la derivada en términos de $u$ de la función multiplicada por la derivada de u en términos de $x$''. Relee todo esto hasta que entiendas cada parte.
+        \paragraph{}Sabiendo que hay algunas derivadas que se resuelven de esta manera, a veces hay que tener cierta habilidad para darse cuenta de que la derivada de una función interna está multiplicando a toda una expresión. Por ejemplo. si quisieramos resolver la siguiente integral, diríamos lo siguiente:
+        $$\int{-2x\sin{x^2}}dx$$
+        \paragraph{}Es muy fácil saber la respuesta puesto que es el resultado de la anterior derivada, pero en un contexto más general, lo que habría que hacer es identificar que la derivada de $x^2$ es exactamente igual a $2x$, el cual es un término que está multiplicando en el integrando, y lo que queda, no es más que $-\sin{x}$ (o $-\sin{x^2}$ si se entiende más fácilmente). cuya integral es $cos{x}$. De ahí que:
+        $$\int{-2x\sin{x^2}}dx=cos{x^2}+C$$
+        \paragraph{}Evidentemente este no es un razonamiento tan sencillo de realizar, por lo que existe la técnica de la sustitución para simplificar el problema. Esta misma técnica se conoce como el método de ``cambio de variable'', pues se asigna una variable nueva para simplificar el problema. Esta variable nueva sería la misma $u$ que utilizamos en la ecuación \ref{eq:cadena}, y se resuelve de la siguiente manera:
+        \paragraph{} En la integral $$\int{-2x\sin{x^2}}dx$$ se sabe que la derivada de $x^2$ está multiplicando al integrando, por lo que decimos que $u=x^2$. La expresión quedaría de la siguiente manera:
+        $$\int{-2x\sin{u}}dx$$
+        \paragraph{}Sin embargo, en este caso, $u$ no es independiente de $x$, por lo que no podemos tratarla como una constante como sí se hacía con otras letras que multiplicaban a otras integrales. Lo ideal para esto es escribir toda la expresión (incluyendo al diferencial) en términos de u.
+        \paragraph{}Para representar al diferencial de $x$ en términos de $u$, se deriva $u$ de la siguiente manera.
+        $$u=x^2 \;\;\;\rightarrow\;\;\; \frac{du}{dx}=2x\;\;\;\rightarrow\;\;\;du = 2xdx$$
+        \paragraph{}Ahora para incorporar este diferencial de $u$ en la expresión, se enseñan 2 maneras en las universidades, una es despejando $dx$ y la otra es reemplazando algún o algunos factores por $du$.
+        \paragraph{}Por un lado, nótese que la integral puede ser reordenada de la siguiente manera:
+        $$\int{-\sin{(u)}2x}dx$$
+        \paragraph{}Y de ahí se logra evidenciar que el diferencial de $u$ está escrito tal cual al frente de la expresión, puesto que $du = 2xdx$, entonces la integral quedaría como:
+        $$\int{-\sin{u}}du=\cos{u}+C$$
+        \paragraph{}Pero como $u=x^2$, entonces la expresión quedaría así:
+        $$\int{-2x\sin{x^2}}dx=\cos{x^2}+C$$
+        \paragraph{}Este procedimiento se hizo reemplazando el valor de $du$ con aquello que fuera necesario que estuviera en el integrando, pero hay ocasiones en las que otras persona hacen este proceso despejando dx de la siguiente manera:
+        $$du = 2xdx\;\;\;\rightarrow\;\;\;\frac{du}{2x}=dx$$
+        $$\int{-2x\sin{u}}dx\;\;\;\rightarrow\;\;\;\int{-2x\sin{u}}\frac{du}{2x}$$
+        \paragraph{}En este caso, las $2x$ se simplificarían y quedaría la misma expresión con la que llegamos a la solución de la integral, inténtalo si deseas.
+        \paragraph{}En ocasiones, cuando la función interna corresponde a $x+a$, donde $a$ es independiente de $x$, no es necesario contar con una derivada explícitamente escrita en la función, puesto que la derivada de la función interna es igual a 1, tal como se da en los ejemplos de la tabla \ref{tab: sustituciones directas}
+        \begin{table}[h!]
+        \centering
+            \begin{tabular}{lll}
+            \hline
+            Integral & Sustitución & solución\\ \hline
+            \multicolumn{1}{l|}{$\int{e^{x+a}dx}$} & \multicolumn{1}{l|}{\multirow{4}{*}{\makecell{$u=x+a$\\ $du = dx$}}} & $e^{x+a}+C$ \\
+            \multicolumn{1}{l|}{$\int{\frac{1}{x+a}dx}$} & \multicolumn{1}{l|}{}                               & $\ln{\left|x+a\right|}+C$ \\
+            \multicolumn{1}{l|}{$\int{\left(x+a\right)^kdx}$} & \multicolumn{1}{l|}{}                               & $\frac{\left(x+a\right)^{k+1}}{k+1}+C$ \\
+            \multicolumn{1}{l|}{$\int{\sin{\left(x+a\right)}dx}$} & \multicolumn{1}{l|}{}                               & $-\cos{\left(x+a\right)}+C$ \\ \hline
+            \end{tabular}
+            \caption{Integrales por sustitución con solución directa}
+            \label{tab: sustituciones directas}
+        \end{table}
+        \paragraph{}Sin embargo, no siempre estos ejercicios se presentan de una forma tan explícita, en donde la derivada de una función interna es tan fácil de evidenciar. En algunas ocasiones, la derivada de la función ha sido simplificada y hay que hacer un proceso extra con el fin de encontrarla. La resolución de estos ejercicios depende de la práctica, el ingenio o incluso la creatividad. Tómalas como un ejercicio, no te desanimes ni te autosabotees ¡No se vale decir que no eres capaz!
+        \paragraph{}El ejemplo más típico de esto es la integral de la tangente, la cual usaremos como ejemplo a continuación.
+        $$\int{\tan{x}}dx$$
+        \paragraph{}Es bien sabido que la tangente de $x$ es el equivalente de dividir el seno de un ángulo $x$ entre el coseno de ese mismo ángulo, de ahí que:
+        $$\int{\tan{x}}dx = \int{\frac{\sin{x}}{\cos{x}}}dx$$
+        \paragraph{}Para este punto es más fácil darse cuenta de que la derivada del coseno de $x$ está multiplicando la función (no te frustres si no es tán fácil para ti, tómate tu tiempo en entenderlo, la derivada del coseno de $x$ es menos seno de $x$, y el seno de $x$ está en el numerador, es decir, multiplicando), por ello, usaremos el coseno de $x$ como la función interna.
+        $$\text{sea }u = \cos{x}$$
+        $$du = -sin{x}dx$$
+        \paragraph{}Nótese que la derivada de coseno de $x$ no es seno de $x$ positivo sino seno de $x$ negativo, por lo que es necesario pasar el símbolo negativo al otro lado de la ecuación.
+        $$-du = sin{x}dx$$
+        \paragraph{}Y se puede evidenciar que $\sin{x}dx$ es el numerador de la integral, por lo que reemplazando se obtiene que:
+        $$\int{\frac{\sin{x}}{\cos{x}}}dx = \int{\frac{-du}{u}}=-\int{\frac{du}{u}}$$
+        \paragraph{}Ahora, la integral en cuestión ya es una que aparece en las tablas de integrales. $\int{\frac{1}{x}dx}=\ln|x|+C$, y como la $x$ es una variable arbitraria:
+        $$-\int{\frac{du}{u}}=-\ln{|u|}+C$$
+        \paragraph{}Como $u = \cos{x}$ entonces
+        $$\int{\frac{\sin{x}}{\cos{x}}}dx=-\ln{\left|\cos{x}\right|}$$
+        \paragraph{}Pero ya habíamos visto que la integral de la tangente de $x$ era $\ln{\left|\sec{x}\right|}+C$. Para llegar a esta presentación de la misma respuesta, hay que hacer uso de las propiedades de los logaritmos, en donde se dice que $a\ln{b}=\ln{b^a}$, es decir, que el coseno de $x$ que está adentro del logaritmo en la solución que acabamos de encontrar estaría elevado a la menos 1 (porque la respuesta aparece negativa).
+        $$-\ln{\left|\cos{x}\right|}=\ln{\left|\frac{1}{\cos{x}}\right|}=\ln{\left|\sec{x}\right|}$$
+        \paragraph{}Por ende.
+        $$\int{\tan{x}}dx=\ln{\left|\sec{x}\right|}+C$$
+        \paragraph{}Intenta ahora tú resolver la siguiente integral. Ánimo.
+        $$\int{\cot{x}}dx$$
+        \paragraph{}En muchas otras ocasiones, hay que incorporar cosas al integrando para tener de donde extraer la derivada, o despejar $u$ también del resultado de la derivada. Por ejemplo en la siguiente integral.
+        $$\int{\frac{e^{3x}+1}{e^{2x}}}dx$$
+        \paragraph{}En este caso, sería muy conveniente que toda la expresión estuviera multiplicada por $e^x$,  de manera que pudiera sustituir $e^x$ y contar con su derivada multiplicando al integrando. Sin embargo, podrímos incluirlo multiplicando tanto numerador como denominador por $e^x$ de la siguiente manera.
+        $$\int{\frac{\left(e^{3x}+1\right)e^x}{e^{2x}e^x}}dx$$
+        \paragraph{}Dado que estamos multiplicando tanto numerador como denominador por $e^x$, no estamos alterando la integral, por lo que es una operación válida. Se simplificará entonces el denominador para empezar con el proceso de sustitución. Como se tiene $e^x$ multiplicando al diferencial de $x$, se procederaáa sustituir $e^x$.
+        $$\int{\frac{\left(e^{3x}+1\right)e^x}{e^{3x}}}dx$$
+        $$\text{sea } u = e^x$$
+        $$du = e^xdx$$
+        $$\int{\frac{u^3+1}{u^3}}du$$
+        \paragraph{}Esta integral se puede resolver separando ambos términos del numerador de la siguiente manera.
+        $$\int{\frac{u^3}{u^3}+\frac{1}{u^3}}du=\int{1+\frac{1}{u^3}}du=\int{}du+\int{\frac{1}{u^3}}du$$
+        $$u-\frac{u^{-2}}{2}+C$$
+        $$\int{\frac{e^{3x}+1}{e^{2x}}}dx = e^x-\frac{e^{-2x}}{2}+C$$
+        \paragraph{}Otra forma en la que se pudo haber resuelto esta integral, tal vez de una forma más intuitiva o mecánica es despejando $dx$ de la siguiente manera. Partiendo de la integral inicial, se puede hacer la misma sustitución.
+        $$\int{\frac{e^{3x}+1}{e^{2x}}}dx$$
+        $$\text{sea }u = e^x$$
+        $$du = e^xdx$$
+        \paragraph{}En este punto, dado que $u = e^x$, la última expresión se puede reescribir como:
+        $$du = udx$$
+        $$\frac{du}{u} = dx$$
+        \paragraph{}Ya con esto se podría reemplazar en la integral.
+        $$\int{\frac{u^3+1}{u^2}}\frac{du}{u}$$
+        \paragraph{}Tras hacer la multiplicación de fracciones, llegaríamos a la misma integral que ya resolvimos en la otra forma de abordar el problema. Ambos procedimientos son válidos.
+        \paragraph{}Existen otras integrales en donde aquello que se tiene que multiplicar y dividir, o sumar y restar es más difícil de encontar, por lo que solemos encontrarlo en las tablas de integrales y las asumimos como ciertas sin más análisis, pero también se pueden demostrar, tales como la integral de la secante.
+        $$\int{\sec{x}}dx$$
+        \paragraph{}Definitivamente no es fácil de ver que lo que hay que multiplicar en este caso es $\sec{x}+\tan{x}$, pero este es el factor que puede hacernos llegar a la respuesta.
+        $$\int{\frac{\sec{x}\left(\sec{x}+\tan{x}\right)}{\left(\sec{x}+\tan{x}\right)}}dx$$
+        \paragraph{}Aplicando la propiedad distributiva en el numerador se obtiene lo siguiente.
+        $$\int{\frac{\sec^2{x}+\tan{x}\sec{x}}{\sec{x}+\tan{x}}}dx$$
+        \paragraph{}La derivada de $\tan{x}$ es igual a $\sec^2{x}$ y la derivada de $\sec{x}$ es igual a $\tan{x}\sec{x}$, por lo que la derivada de todo el denominador está en el numerador.
+        $$\text{sea }u = \sec{x}+\tan{x}$$
+        $$du = \left(\sec{x}\tan{x}+\sec^2{x}\right)dx$$
+        \paragraph{}Reemplazando
+        $$\int{\frac{du}{u}=\ln{|u|}+C}$$
+        $$\int{\sec{x}}dx = \ln{\left|\sec{x}+\tan{x}\right|}+C$$
+        \paragraph{}No te asustes, esta era una integral difícil de resolver, pero es típica, muy frecuentemente aparece en los exámenes. Repásala y entiéndela, con el paso del tiempo irás desarrollando el ingenio necesario para llegar a estas soluciones tan creativas e ingeniosas, pero todo a su tiempo.
+        \paragraph{}El procedimiento para resolver la integral de cosecante de $x$ es muy parecido, intenta resolverlo, piensa en qué es aquello que tienes que multiplicar y dividir, y si definitivamente no lo encuentras, escanea el código qr para saberlo.
+        $$\int{csc{x}}dx$$
+        \begin{flushright}
+        \includegraphics[width=0.1\textwidth]{codigo_qr.png}
+        \end{flushright}
+        
+        \subsection{Ejercicios}
+        \paragraph{}Realiza cada uno de los puntos en momentos separados. En este punto, ya no es necesario que se resuelvan todos juntos, tu cerebro debe hacer la sinapsis de lo que va practicando y para eso necesita tiempo. Realiza algunos ejercicios, tómate algunos descansos, analiza cada punto e interiorízalos todos. Como es nuevo conocimiento, debes darle tiempo a tu cerebro para asimilarlo.
+            \begin{enumerate}
+                \item Resuelve las siguientes derivadas por la regla de la cadena, luego, realiza el proceso inverso para integrar su resultado.
+                \begin{enumerate}[label*=\arabic*.]
+                    \item [2.0] $\frac{d}{dx}\sin{\left(x^2\right)} = 2x\cos{\left(x^2\right)}$
+                    $$\int 2x\cos{\left(x^2\right)}dx$$
+                    $$u = x^2$$
+                    $$du = 2xdx$$
+                    $$\int{\cos{u}}du = \sin{u}+c$$
+                    $$\int 2x\cos{\left(x^2\right)}dx=\sin{\left(x^2\right)}+c$$
+                    \item $\frac{d}{dx}e^{\cos{x}}$
+                    \item $\frac{d}{dx}\frac{1}{\ln{x}}$
+                    \item $\frac{d}{dx}\frac{1}{\ln{\left(\tan{x}\right)}}$
+                    \item $\frac{d}{dx}\ln{\left(x^3+2x+1\right)}$
+                    \item $\frac{d}{dx}\sec^3{x}$
+                    \item $\frac{d}{dx}\sqrt{tan{x}}$
+                \end{enumerate}
+                \item Resuelve las siguientes integrales usando el método de sustitución.
+                \begin{enumerate}[label*=\arabic*.]
+                    \item $\int{e^{x^3}x^2}dx$
+                    \item $\int{\frac{x^3}{1+x^4}}dx$
+                    \item $\int{\frac{x}{\left(1+x^2\right)^2}}dx$
+                    \item $\int{e^{e^x}e^x}dx$
+                    \item $\int{\frac{2x+3}{x^2+3x+4}}dx$
+                    \item $\int{\frac{\ln{x}}{x}dx}$
+                    \item* $\int{\frac{dx}{\sqrt{x}\left(x+2\sqrt{x}+1\right)}}$
+                    \item $\int{\sec^2{x}{\tan{x}}}dx$
+                    \item $\int{\frac{4\cos{x}-3\sin{x}}{4\sin{x}+3\cos{x}}}dx$
+                    \item *$\int{\sin^3{x}}dx \rightarrow$ Consejo: use la identidad pitagóritca $1=\sin^2{x}+\cos^2{x}$
+                    \item *$\int{\cos^5{x}}dx$
+                    \item *$\int{\tan^6{x}}dx$
+                    \item *$\int{\sec^8{x}}dx$
+                \end{enumerate}
+            \end{enumerate}
+        \section{Método de Integración por partes}
+        \paragraph{}Como ya lo dijimos, el método de integración por sustitución es una técnica utilizada para encontrar la antiderivada de las funciones que fueron calculadas por medio la regla de la cadena. Sin embargo, no todas las derivadas pueden resolverse de manera directa o utilizando la regla de la cadena. Otra regla frecuentemente utilizada para resolver derivadas es la regla del producto, y ésta regla también tiene asociada un método de integración, el cual es el método de integración por partes. Este método se deduce de la siguiente manera:
+        \paragraph{}Es bien sabido que para derivadar una función representada como el producto de otras dos funciones se utiliza la siguiente expresión
+        $$\frac{d}{dx}[u(x)v(x)] = u(x)\frac{d}{dx}v(x)+v(x)\frac{d}{dx}u(x)$$
+        \paragraph{}En este caso, si quisiéramos encontrar la antiderivada de una función parecida a la expresión de la izquierda, nos veríamos tentados a a separar ambos sumandos en 2 integrales independientes, lo cual no siempre sería una mala idea. Por este motivo, solo uno de los dos términos es analizado con el fin de implementar el método de integración por partes. Para este análilsis omitiremos la notación de funciones con su parámetro pues ya se asume como clara la idea de que $u$ y $v$ son funciones de $x$ Si despejamos el primer término obtenemos lo siguiente:
+        $$u\frac{dv}{dx}=\frac{d}{dx}(uv)-v\frac{du}{dx}$$
+        \paragraph{}Cuándo se simplifican los dx se obtiene la siguiente expresión:
+        $$udv=d(uv)-vdu$$
+        \paragraph{}Cuando integramos obtenemos la expresión que típícamente se utiliza para utilizar el método de integración por partes
+        \begin{equation}
+        \int{udv} = uv-\int{vdu}
+        \label{eq:partes}
+        \end{equation}
+        \paragraph{}En esta expresión, es imprescindible tener presente que $u$ y $v$ son funciones que pueden estar en términos de otra variable, que $u$ suele ser una expresión sin derivar y $dv$ es la derivada de una expresión determinada.
+        \chapter{Integrales Definidas}
+        \paragraph{}Más allá de conocer que una integral es el proceso opuesto a la derivación, las integrales tienen una aplicación directa, normalmente se utilizan para calcular el área debajo de una curva.
+        \paragraph{}Para entender esto tenemos que devolvernos a las nociones de la derivada y recordar que el cálculo procura analizar un mundo contínuo (procura analizar las cosas desde un enfoque infinitecimal).
+        \paragraph{}Para analizar esto hay que recordar lo que representa un diferencial y una derivada, La figura \ref{fig:diferencial} muestra la representación gráfica de una sección de una función.
+        \begin{figure}
+        \begin{tikzpicture}
+            \begin{axis}[
+                xlabel={$x$},
+                ylabel={$y$},
+                xmin=-2, xmax=2,
+                ymin=0, ymax=5,
+                width=0.8\linewidth,
+                no marks,
+                ]
+            \addplot+[thick, blue, domain=-2:2, samples=100] {x^3/2+x^2/2+1};
+            \addplot+[thick, red, domain = 0.7:0.9, samples = 2]{0.7^3/2+0.7^2/2+1};
+            \addplot [red, thick] coordinates {(0.9,0.7^3/2+0.7^2/2+1)(0.9,0.9^3/2+0.9^2/2+1)};
+            \node at (axis cs:0.8,0.7^3/2+0.7^2/2+0.8) {$dx$};
+            \node at (axis cs:1.05,0.7^3/4+0.7^2/4+0.5+0.9^3/4+0.9^2/4+0.5) {$dy$};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Representación gráfica de un diferencial}
+        \label{fig:diferencial}
+        \end{figure}
+        \paragraph{}En la figura \ref{fig:diferencial} se presenta con líneas rojas una representación de un diferencial, pero es importante mencionar que la escala está infinitamente maximizada. El tamaño de un diferencial es algo que no se puede comprender, es tiene un tamaño infinitecimal, no tiene una medida, y si la tuviera, sería la más pequeña posible, no solo tan pequeña que no podríamos verla, sino tan pequeña que no se puede comparar con nada, solamente con otros diferenciales. Si el diferencial simplemente tuviera una medida pequeña en comparación con la gráfica, no sería un diferencial, sería lo que se conoce como un segmento, que se representa, no con la letra d, sino con la letra griega $\Delta$ (delta).
+        \paragraph{}Un segmento es el concepto que se suele utilizar para calcular la pendiente de una línea recta como se hace con la fórmula de la pendiente que aparece en la ecuación \ref{eq:pendiente}.
+        \begin{equation}
+        m = \frac{\Delta y}{\Delta x}
+        \label{eq:pendiente}
+        \end{equation}
+        \paragraph{}Sin embargo, la fórmula de la pendiente no es precisa cuándo una curva cambia su inclinación en todo momento, tal como ocurre en la curva de la figura \ref{fig:diferencial}, en donde se nota que la curva es demasiado inclinada cuándo x tiende a ser 1.5, y tiende a ser plana cuándo x tiende a ser -0.5.
+        \paragraph{}Para que la pendiente pueda ser calculada de manera precisas, es necesario que los segmentos sean cada vez más pequeños, tan pequeños como sea posible. Ahí es donde se empiezan a usar los diferenciales, ya que el diferencial representa el segmento más pequeño posible que podemos idealizar, por ello, la derivada de una función representa la inclinación de la recta tangente que pasa por el punto que se analiza en la gráfica, pues el cálculo de la derivada es equivalente al cálculo de la pendiente pero haciendo un análisis infinitecimal.
+        \paragraph{}A gran escala $\rightarrow m = \frac{\Delta y}{\Delta x}$
+        \paragraph{}A escala ínfima $\rightarrow m = \frac{dy}{dx}$
+        \paragraph{}¡Momento de pausa activa! Mira al horizonte para descansar los ojos, piensa un poco en lo que acabas de leer y analiza si lo entendiste o no. Recuerda hacerle a tu profesor todas las preguntas que consideres. Si ya volviste, sigamos.
+        \paragraph{}Una tarea más difícil se puede dar cuando tratamos de calcular el área que hay por debajo de una figura curva, tomemos la misma gráfica que usamos con los diferenciales y tratemos de calcular el área que hay debajo de la curva entre los puntos -1.5 y 1.5, tal como se muestra en la figura \ref{fig:integral}
+        \begin{figure}
+        \begin{tikzpicture}
+            \begin{axis}[
+                xlabel={$x$},
+                ylabel={$y$},
+                xmin=-2, xmax=2,
+                ymin=0, ymax=5,
+                width=0.8\linewidth,
+                no marks,
+                ]
+            \addplot+[thick, blue, domain=-2:2, samples=100] {x^3/2+x^2/2+1};
+            \addplot [red, thick] coordinates {(-1.5,0)(-1.5,-1.5^3/2+1.5^2/2+1)};
+            \addplot [red, thick] coordinates {(1.5,0)(1.5,1.5^3/2+1.5^2/2+1)};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Representación gráfica de un diferencial}
+        \label{fig:integral}
+        \end{figure}
+        \paragraph{}La figura que se está usando contiene la gráfica de la función $f(x)=\frac{x^3}{2}+\frac{x^2}{2}+1$ y les anticipo que el área que hay debajo de esa curva entre esos valores de x es igual a 4.125.
+        \paragraph{}Con las tablas tradicionales de áreas de figuras geométricas no se tiene suficiente para calcular el área de esta geometría irregular, pero con el fin de obtener un acercamiento a su tamaño se puede aproximar su forma a la geometría de figuras conocidas. Las integrales parten de la idea de aproximar su forma a la geometría de muchos rectángulos unidos. Si analizamos la figura como si fuera un rectángulo, que claramente no lo es, podríamos por lo menos conseguir información acerca del orden de magnitud que tiene esta geometría.
+        \paragraph{}Si se divide la geometría en muchos rectángulos, uno se puede aproximar cada vez más al área que hay debajo de la curva, que es exactamente lo que se hace en la figura \ref{fig:Riemmann}. Este proceso de sumar el área de muchos rectángulos debajo de la curva se conoce como realizar una suma de Riemmann,
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[width=\textwidth]{riemmann.jpg}
+        \caption{Aproximación al área debajo de la curva a partir de sumas de Riemmann}
+        \label{fig:Riemmann}
+        \end{figure}
+        \paragraph{}Si escribimos este proceso de manera simbólica, esto se representaría de la siguiente manera.
+        $$A = y(x_1)\Delta x+y(x_2)\Delta x+...+y(x_n)\Delta x$$
+        \paragraph{}Donde n representa el número de rectángulos que se está calculando. Recordemos que el área de un cuadrado es igual a su base multiplicada por su altura, y en este caso, el área de cada rectángulo es el valor de $\Delta x$ (es decir, un desplazamiento pequeño en x) multiplicado por la altura de la curva que corresponde al valor de y. Si se escribe esto como una sumatoria queda así:
+        $$\sum_{i = 1}^n{y(x_i)\Delta x}$$
+        \paragraph{}Cuando traducimos esto al mundo infinitecimal, es decir, dejamos de usar $\Delta x$ y empezamos a usar $dx$, el término de la sumatoria se convierte en una integral, es decir, la integral representa una sumatoria infinita de aportes infinitecimales ¡Es como si usáramos infinitos rectángulos!.
+        \begin{equation}
+        A=\int_a^b{y(x)}dx
+        \label{eq:integral}
+        \end{equation}
+        \paragraph{}La expresión anterior se lee de la siguiente manera: ``El área es igual a la integral desde a hasta b de y(x) con respecto a x'' y parece que utiliza un símbolo diferente, pero se resuelve de una manera muy parecida a las integrales que no tienen los términos que aparecen arriba y abajo.
+        \subsubsection{Nota}
+        \paragraph{}Las integrales que no tienen los números arriba y abajo se conocen como \textbf{integrales indefinidas}, mientras que las que sí tienen estos números se conocen como \textbf{integrales definidas}.
+        \section{Resolución de una integral definida}
+        \paragraph{}Ahora explicaré cómo se hizo para determinar que el área bajo la curva era 4.125, para ello se utilizará a integral y una fórmula que conocemos como el \textbf{segundo teorema fundamental del cálculo}, que es la que aparece en la ecuación \ref{eq:segundofundamental}
+        \begin{equation}
+        \int_a^b{f(x)dx}=F(b)-F(a)
+        \label{eq:segundofundamental}
+        \end{equation}
+        \paragraph{}En donde $F(b)$ y $F(a)$ representan las integrales de las funciones evaluadas en $b$ y en $a$ respectivamente (sin el +C).
+        \paragraph{}Recordemos entonces que la función que utilizamos en la gráfica era $\frac{x^3}{2}+\frac{x^2}{2}+1$ y que la estabamos analizando desde -1.5 hasta 1.5. Entonces como estamos analizando la integral entre esos valores, decimos que $a=-1.5$ y $b=1.5$ y comenzamos a integrar
+        $$A = \int_{-1.5}^{1.5}{\left(\frac{x^3}{2}+\frac{x^2}{2}+1\right)}dx$$
+        \paragraph{}Lo primero es resolver la integral, para ello usamos la propiedad de linealidad de las integrales de la siguiente manera.
+        $$A = \int_{-1.5}^{1.5}{\frac{x^3}{2}dx}+\int_{-1.5}^{1.5}{\frac{x^2}{2}dx}+\int_{-1.5}^{1.5}{dx} = $$
+        $$A = \frac{1}{2}\int_{-1.5}^{1.5}{x^3dx}+\frac{1}{2}\int_{-1.5}^{1.5}{x^2dx}+\int_{-1.5}^{1.5}{dx}$$
+        \paragraph{} Ahora, cuando resolvemos la integral, hay que recordar que ya no se usa el +C porque estamos haciendo una integral definida, en vez de ello, se agrega una línea vertical al final que indica entre qué valores se pretenden evaluar las expresiones. Las siguientes expresiones son los resultados de las integrales de arriba, si hay alguna que no entiendes recuerda preguntar.
+        $$A = \left.\left(\frac{x^4}{8}+\frac{x^3}{6}+ x\right)\right|_{-1.5}^{1.5}$$
+        \paragraph{}La línea vertical que se muestra al final de la expresión representa que esa función va a ser evaluada en 1.5 y su resultado se va a restar por la misma función evaluada en -1.5. En este caso, toda la expresión se lee de la siguiente manera: ``El área es igual a la función $\frac{x^4}{8}+\frac{x^3}{6}+x$ evaluada entre 1.5 y -1.5''.
+        $$A = \left(\frac{\left(1.5\right)^4}{8}+\frac{\left(1.5\right)^3}{6}+ \left(1.5\right)\right)-\left(\frac{\left(-1.5\right)^4}{8}+\frac{\left(-1.5\right)^3}{6}+ \left(-1.5\right)\right)$$
+        $$A = 0.6328125+0.5625+1.5-\left(0.6328125-0.5625-1.5\right)$$
+        $$A = 0.6328125+0.5625+1.5-0.6328125+0.5625+1.5$$
+        $$A = 4.125$$
+        \paragraph{}Así se calcula el área que hay debajo de la curva entre esos dos puntos. Para analizar si lo entendiste bien considera lo siguiente ¿Qué hubiera pasado si quisiéramos calcular el área que hay debajo de la figura entre dos puntos distintos de x, por ejemplo entre 0 y 3? Intententa calcularlo.
+        \paragraph{}Estas integrales definidas suelen dar como resultado un valor numérico (puesto que se está calculando un área), por lo que tales operaciones suelen ser resueltas usando una calculadora científica. Normalmente los estudiantes optan por utilizar calculadoras marca Casio, por ello, a continuación se enlistan las calculadoras que pueden resolver integrales de esta marca, indicando en el ranking de precios con un 1 la de precio más bajo y con números mayores ordenados las de precios más altos.
+        \begin{table}[h!]
+        \centering
+            \begin{tabular}{c c c c}
+            \hline
+             & \multicolumn{2}{c}{Resuelve integrales en formato} &\\
+            \hline
+            Calculadora & Lineal & Profesional & Ranking de precio\\
+            \hline
+            Casio fx 82 Plus & & & 1\\
+            Casio fx 350 Plus & & & 2\\
+            Casio fx 570 Plus & & x & 3 \\
+            Casio fx 570MS Plus & x & & 3 \\
+            
+            \end{tabular}
+            \caption{Características de las calculadoras Casio más usadas}
+            \label{tab:calculadoras}
+        \end{table}
+        \paragraph{}Las calculadoras suelen completar el nombre que aparece en la tabla \ref{tab:calculadoras} con 2 letras que hacen referencia al idioma en el que están configuradas, por ejemplo, la Casio fx 570LA Plus indica ``LA'' para indicar que está configurada en español de latinoamérica.
+        \paragraph{}Algunas calculadoras más avanzadas permiten graficar las funciones, pero no serán mostradas en este documento para no extender mucho la tabla.
+        \section{Áreas acotadas por funciones}
+        \paragraph{}Es frecuente encontrar que no se quiera calcular un área que esté delimitada entre una función y eje x, sino que las figuras de las que se quiera conocer el área se ven delimitadas por dos o más funciones, tal como se ve en la figura \ref{fig:area}.
+        \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                xlabel={$x$},
+                ylabel={$y$},
+                xmin=-0.5, xmax=1.5,
+                ymin=-0.5, ymax=1.5,
+                width=0.8\linewidth,
+                axis lines=middle,
+                no marks,
+                ]
+            \addplot+[thick, blue, domain=-2:2, samples=100] {x};
+            \addplot+[thick, red, domain = -2:2, samples = 100]{x^2};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Área acotada por funciones}
+        \label{fig:area}
+        \end{figure}
+        \paragraph{}En este caso, existe un área delimitada entre las 2 funciones, en donde la línea azul es la función $f(x) = x$ y la línea roja es la función $f(x) = x^2$. Si se quiere calcular el área que existe en medio de estas dos funciones, el primer paso sería determinar el punto en el que ambas funciones se conectan. Esto se logra igualando ambas funciones.
+        $$x = x^2$$
+        $$x = 0\;\;\;,\;\;\; x = 1$$
+        \paragraph{}De aquí se puede intuir la razón por la que la integral necesaria para calcular el área en cuestión va a tener como límite de integración al 0 y al 1. Sin embargo, si se calcula la integral de $x$ se calculará el área entre la función azul y el eje x, y si se calcula la integral de $x^2$ se calculará el área que hay por debajo de la línea roja. Si se quiere calcular el área que hay en medio de las dos funciones, habría que calcular el área que hay debajo de la línea azul y restarle la que hay debajo de la línea roja, por lo que la integral en cuestión es la siguiente.
+        $$\int_0^1{x-x^2}dx$$
+        \paragraph{}Esta integral se resuelve de la siguiente manera.
+        $$\left.\left(\frac{x^2}{2}-\frac{x^3}{3}\right)\right|_0^1$$
+        $$\frac{1}{2}-\frac{1}{3}-0+0=\frac{1}{6}$$
+        \paragraph{}Si esto se presenta como una función general, el área que hay entre 2 funciones se calcula con la ecuación \ref{eq:area}.
+        \begin{equation}
+        A=\int_a^b{f(x)-g(x)}dx
+        \label{eq:area}
+        \end{equation}
+        \paragraph{}Donde $f(x)$ es la función superior (la que se encuentra más arriba) y $g(x)$ es la función inferior (la que se encuentra más abajo).
+        \subsection{Ejercicios}
+            \paragraph{}Realiza los siguientes ejercicios sin saltarte ninguno y sin adelantarte, dispón de tiempo para realizarlos todos el mismo día y sin descansar hasta haberlos terminado.
+            \begin{enumerate}
+                \item Resuelve las siguientes integrales definida a mano y trata de interpretar el resultado. Una buena estrategia para interpretar los resultados podría ser utilizar una aplicación para graficar las funciones (desmos.com o geogebra).
+                \begin{enumerate}[label*=\arabic*.]
+                    \item $\int_0^3{x^3}dx$
+                    \item $\int_{-3}^3{x^3}dx$
+                    \item $\int_{0}^3{x^2}dx$
+                    \item $\int_{-3}^3{x^2}dx$
+                    \item $\int_0^{\frac{\pi}{3}}{\sin{3x}dx}$
+                    \item $\int_0^{\frac{2\pi}{3}}{\sin{3x}dx}$
+                    \item $\int_0^4{\left(x^2-4x\right)dx}$
+                    \item $\int_0^4{\frac{\left(x^2-4x\right)^2}{2}dx}$
+                    \item *$\int_{-2}^{2}{\left|x\right|dx}$
+                    \item *$\int_{-2\pi}^{2\pi}{\left|\cos{x}\right|dx}$
+                \end{enumerate}
+                \item Utiliza la integral para calcular el área sombreada de las siguientes figuras.
+                \begin{enumerate}[label*=\arabic*.]
+                    \item                    \includegraphics[width=0.5\textwidth]{3.1.1/2.1.jpg}
+                    \item \includegraphics[width=0.5\textwidth]{3.1.1/2.2.jpg}
+                    \item \includegraphics[width=0.5\textwidth]{3.1.1/2.3.jpg}
+                    \item \includegraphics[width=0.5\textwidth]{3.1.1/2.4.jpg}
+                    \item* \includegraphics[width=0.5\textwidth]{3.1.1/2.5.jpg}
+                \end{enumerate}
+                \item Identifica la función mayor y la función menor para determinar cuál es el área de la figura sombreada.
+                \begin{enumerate}[label*=\arabic*.]
+                    \item \includegraphics[width=0.5\textwidth]{3.1.1/3.1.jpg}
+                    \item \includegraphics[width=0.5\textwidth]{3.1.1/3.2.jpg}
+                    \item* \includegraphics[width=0.5\textwidth]{3.1.1/3.3.jpg}
+                    \item \includegraphics[width=0.5\textwidth]{3.1.1/3.4.jpg}
+                    \item \includegraphics[width=0.5\textwidth]{3.1.1/3.5.jpg}
+                    \subsubsection{Consejo}
+                    Busca y utiliza la identidad de ángulo doble para resolver esta ecuación.
+                \end{enumerate}
+                \item Es momento de otro descanso. Pregúntate ¿Cómo te sientes? Para este punto, la matemática no cuenta con procedimientos estandarizados como en otros procesos que se aboraban en otras materias. Debes  ser creativo para ingeniar formas en las que puedas encontrar la solución. Tómate tu tiempo para entrenar esta capacidad. Recuerda que no debes frustrarte.
+                \item ¿Ya pasaste por la primera evaluación? Recuerda que tu sentir y comodidad importan, No te quedes esperando a que tus propios pensamientos te hagan sentir mal, has algo al respecto y trátate bien, ¿Ya estudiaste lo suficiente? La respuesta a esa pregunta solo la tienes tú.
+        \end{enumerate}
+    
+    \chapter{Respuestas}
+        \begin{enumerate}
+        \item[2.2.1] 
+        \begin{enumerate}
+            \item[1.]
+                \begin{enumerate}
+                    \item[1.1] $\frac{d}{d\theta}\theta = 1 \rightarrow     \int{d\theta}=\theta+C$
+                    \item[1.3] $\frac{d}{dx}\frac{x^3}{3} = x^2 \rightarrow \int{x^2}dx = \frac{x^3}{3}+C$
+                    \item[1.5] $\frac{d}{dx}\sin{x} = \cos{x} \rightarrow \int{\cos{x}}dx = \sin{x}+C$
+                \end{enumerate} 
+            \item[2.]
+                \begin{enumerate}
+                    \item[2.1] $\int{dm} = m+C$
+                    \item[2.3] $\int{\pi dx} = \pi x+C$
+                    \item[2.5] *$\int{\pi xdy}=\pi xy+C$
+                    \paragraph{}Esta integral era capciosa porque la variable de integración no era la x sino la y, eso quiere decir que en este caso, x es asumida como una constante, y la integral de una constante es la misma constante multiplicada por su variable de integración. Tal como pasaba en la ecuación (2.10) con la k.
+                    \item[2.7] $\int{5y^{9}dy}=\frac{y^{10}}{2}+C$
+                    \item[2.9] *$\int{\sqrt{x^5}dx} = \frac{2\sqrt{x^7}}{7}+C$
+                    \paragraph{}Esta integral no era necesariamente capciosa, solamente que hay que interpretar correctamente la raíz de x como un exponente a la 1/2, sabiéndo esto, se puede resolver como la integral de $x^{5/2}$
+                \end{enumerate}
+            \item[3.]
+                \begin{enumerate}
+                    \item[3.1] $\int{\left(x^2 + 2x + 1\right)}dx= \frac{x^3}{3}+x^2+x+C$
+                    \item[3.3] $\int{\left(x^4 + \sqrt{4x} + x^{1.5}\right)}dx=\frac{x^5}{5}+\frac{4\sqrt{x^3}}{3}+C$
+                    \item[3.5] *$\int{\left(x + 2\right)^2}dx=\frac{x^3}{3}+2x^2+4x+C$
+                    \paragraph{}Esta integral es capciosa porque se necesita desarrollar el exponente para poder representar la expresión como un polinomio. $(x+2)^2 = x^2+4x+4$, y la integral de esta nueva expresión es más fácil de resolver.
+                \end{enumerate}
+        \end{enumerate}
+        \item[2.3.1]
+        \begin{enumerate}
+            \item [1.]
+            \begin{enumerate}
+                \item [1.1] $-\frac{\cos{3x}}{3}+C$
+                \item [1.3] $-4\cos{x}-\frac{3}{2}e^{2x}+C$
+                \item [1.5]*$\frac{4}{3}x^3+12x-\frac{9}{x}+C$
+                \paragraph{}Esta integral se pudo haber dificultado por el hecho de tener un exponente al cuadrado que no permite la resolución de la integral de manera directa, hay que hacer un proceso extra expandiendo la expresión antes de integrar
+                \item [1.7] $\frac{16}{5}x^5+32x^3+216x-\frac{216}{x}-\frac{27}{x^3}+C$
+                \item [1.9] $x+\frac{\cos{2x}}{2}+C$
+                \paragraph{}Con esta integral empezamos a entrenar nuestra agudeza visual al distinguir que hay operaciones útiles que podemos implementar para resolver los problemas. Primero hay que desarrollar el exponente, el cual generará 3 términos, luego hay que aplicar 2 propiedades: hay que tener presente que $\sin^2x+\cos^2x=1$ y que $\sin(2x)=2\sin{x}\cos{x}$
+            \end{enumerate}
+            \item [2.]
+            \begin{enumerate}
+                \item [2.1] $\sec{x}+C$
+                \item [2.3] $\tan^{-1}{x}+C$
+                \item [2.5] $\sec^{-1}{x}+C$
+            \end{enumerate}
+        \end{enumerate}
+        \item[3.1.1]
+        \begin{enumerate}
+            \item [1.]
+            \begin{enumerate}
+                \item [2.1] $\frac{e^{x^3}}{3}+C$
+                \item [2.3] $-\frac{1}{2\left(1+x^2\right)}+C$
+                \item [2.5] $\ln{\left|x^2+3x+4\right|}+C$
+                \item [2.7]*$-\frac{2}{\sqrt{x}+1}+C$
+                \paragraph{}Esta integral se pudo haber dificultado dado que es posible que la sustitución no sea tan clara. Cuando se tiene una raíz cuadrada en el denominador de un integrando, es común pensar que sustituir una raíz es una buena idea. En este caso, se puede decir que $u = \sqrt{x}$, dado que la derivada de esta función dejaría una raíz en el denominador, diciendo que $du = dx/2\sqrt{x}$. Esto eliminaría la raíz de $x$ en el denominador, y el integrando resultante se puede resolver factorizando y sustituyendo nuevamente $m = u+1$.
+                \item [2.9] $\ln{\left|4\sin{x}+3\cos{x}\right|}+C$
+                \item [2.11]*$\sin{x}-\frac{2}{3}\sin^3{x}+\frac{1}{5}\sin^5{x}+C$
+                \paragraph{}Con esta integral hay que hacer unos pasos extra para identificar la expresión que podemos sustituir. Podemos decir que $\cos^5{x} = \cos{x}\cos^4{x} = \cos{x}\left(\cos^2{x}\right)^2$. Ya con esta expresión podemos aplicar la identidad pitagórica al decir que $\cos^2x = 1-\sin^2{x}$, y reemplazar en el integrando, al decir que $\cos^5{x} = \cos{x}\left(1-\sin^2{x}\right)^2$. Ya con esta deducción se puede sustituir $u = \sin{x}$
+                \item [2.13]*$\tan{x}+\tan^3{x}+\frac{3}{5}\tan^5{x}+\frac{1}{7}\tan^7{x}+C$
+                \paragraph{}Con esta integral sigue la misma lógica que la del ejercicio 2.11, solo que la sustitución que hay que hacer es $u = \tan{x}$
+            \end{enumerate}
+        \end{enumerate}
+        \end{enumerate}
 \end{document}
